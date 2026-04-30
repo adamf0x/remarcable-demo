@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Django App
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-fluid " style="margin-bottom: 1rem;">
+      <form action="/product" method="GET">
+        <div class="form-group">
+          <label for="queryInput">Product Search</label>
+          <input id="queryInput" class="form-control" type="text" placeholder="Enter text to search" name="query"/>
+          {% block tagfilterlist %} {% endblock %}
+          {% block categoryfilterlist %} {% endblock %}
+        </div>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div>{% block searchresults %} {% endblock %}</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+{% extends "base.html" %} 
+{% block title %} Home {% endblock %}
+{% block tagfilterlist %}
+<div>
+<p>Filter Tags:</p>
+{% for tag in tags %} 
+<input type="checkbox" 
+        name="tag_filter" 
+        value="{{ tag.id }}" 
+        id="tag_{{ forloop.counter }}"/>
+<label for="tag_{{ forloop.counter }}">{{ tag }}</label>
+{% endfor %}
+</div>
+{% endblock %}
+{% block categoryfilterlist %}
+<div>
+<p>Filter Categories:</p>
+{% for category in categories %} 
+<input type="checkbox" 
+        name="category_filter" 
+        value="{{ category.id }}" 
+        id="tag_{{ forloop.counter }}"/>
+<label for="tag_{{ forloop.counter }}">{{ category }}</label>
+{% endfor %}
+</div>
+{% endblock %}
+{% block searchresults %}
+<table class="table thead-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Categories</th>
+      <th scope="col">Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>
+        {% for category in product.category.all %}
+            <ul>
+                <a><li>{{category.category_name}}</li></a>
+            </ul>
+        {% endfor %}
+        </td>
+        <td>
+        {% for tag in product.tag.all %}
+            <ul>
+                <li>{{tag.tag_name}}</li>
+            </ul>
+        {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
