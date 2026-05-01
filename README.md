@@ -10,3 +10,4 @@ Demo application created for Remarcable using Django
 
 Assumptions:
 - Each product can have multiple tags and multiple categories
+- Product can be searched by both description and title fields
