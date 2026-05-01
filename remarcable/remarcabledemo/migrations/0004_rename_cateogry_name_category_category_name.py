@@ -4,15 +4,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('remarcabledemo', '0003_alter_product_category_alter_product_tag'),
+        ("remarcabledemo", "0003_alter_product_category_alter_product_tag"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='category',
-            old_name='cateogry_name',
-            new_name='category_name',
+            model_name="category",
+            old_name="cateogry_name",
+            new_name="category_name",
         ),
     ]
