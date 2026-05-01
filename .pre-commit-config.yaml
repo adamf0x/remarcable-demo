@@ -8,3 +8,17 @@ repos:
       args: [ --fix ]
     # Run the formatter.
     - id: ruff-format
+- repo: https://github.com/astral-sh/uv-pre-commit
+  # uv version.
+  rev: 0.11.8
+  hooks:
+    - id: uv-lock
+- repo: local
+  hooks:
+  - id: pytest
+    name: pytest
+    entry: ./.venv/bin/pytest ./remarcable/remarcabledemo/tests.py
+    language: system
+    types: [python]
+    pass_filenames: false
+    always_run: true
